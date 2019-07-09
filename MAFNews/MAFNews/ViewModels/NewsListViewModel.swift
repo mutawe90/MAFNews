@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import NVActivityIndicatorView
 
 protocol NewsViewModelDelegate :NSObject{
 
@@ -16,28 +15,35 @@ protocol NewsViewModelDelegate :NSObject{
     func showDetailsiewControllerAt(article:NewsItemViewModel)
     func reloadDataFromPullToRefresh()
 }
+protocol BaseCommunicationHandlerDelegate :NSObject{
+    func addLoadingIndicator()
+    func removeLoadingIndicator()
+    func showError(message: String, complition: (() -> ())? )
+    func showSuccessMessage(message: String, complition: (() -> ())? )
+}
 
-class NewsListViewModel : NVActivityIndicatorViewable{
+
+class NewsListViewModel {
 
     // MARK: - Variables
-     weak var delegate:NewsViewModelDelegate?
+    weak var delegate:NewsViewModelDelegate?
+    weak var controlsDelegate: BaseCommunicationHandlerDelegate?
     fileprivate let networkManager = NewsNetworkManager()
     var dataSource = [NewsItemViewModel]()
-    let activityData = ActivityData()
 
     // MARK: - Helper Methods
     func configureData(){
 
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-
-        networkManager.getTopNewsHeadLines(country: kUAE, onSuccess: { (newsModel) in
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        self.controlsDelegate?.addLoadingIndicator()
+        networkManager.getTopNewsHeadLines(country: kUSAnewsSource, onSuccess: { (newsModel) in
+            self.controlsDelegate?.removeLoadingIndicator()
             self.delegate?.reloadDataFromPullToRefresh()
             if let status = newsModel.status, status.uppercased() == kStatusOk{
                 self.configureDataSource(models: newsModel.articles!)
             }
         }) { (apiError) in
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            self.controlsDelegate?.removeLoadingIndicator()
+            self.controlsDelegate?.showError(message: apiError.message, complition: nil)
             self.delegate?.reloadDataFromPullToRefresh()
         }
 

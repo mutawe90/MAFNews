@@ -41,6 +41,7 @@ class NewsListViewController: BaseViewController {
         tableView.addSubview(refreshControl)
 
         viewModel.delegate = self
+        viewModel.controlsDelegate = self
         viewModel.configureData()
 
     }
