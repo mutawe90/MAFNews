@@ -8,11 +8,13 @@
 //
 
 import Foundation
+
 class NewsItemViewModel {
 
     // MARK: - Properties
     var newsTitle:String
     var newsDescription:String
+    var newsSource:String
     var newsDate:String
     var model:ArticleModel
     var imageURL: URL? {
@@ -22,12 +24,20 @@ class NewsItemViewModel {
         return URL(string:imageUrl)
     }
 
+    var newsURL: URL? {
+        guard let url = model.url else {
+            return nil
+        }
+        return URL(string:url)
+    }
+
     // MARK: - Initialization
     init(article:ArticleModel) {
         model = article
         newsTitle = article.title ?? ""
         newsDescription = article.newsDescription ?? ""
         newsDate = article.publishedAt ?? ""
+        newsSource = article.source?.name ?? ""
         if let dateString = article.publishedAt{
             let date = Date(fromString: dateString, format: .isoDateTimeSec)
             newsDate = (date?.toString(style: DateStyleType.medium))!

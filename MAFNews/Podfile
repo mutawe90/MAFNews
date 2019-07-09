@@ -10,6 +10,7 @@ target 'MAFNews' do
   pod 'Alamofire'
   pod "Connectivity"
   pod 'SDWebImage', '~> 4.4.6'
+  pod 'NVActivityIndicatorView'
 
 
   target 'MAFNewsTests' do

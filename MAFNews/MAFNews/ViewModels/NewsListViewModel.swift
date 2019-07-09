@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NVActivityIndicatorView
 
 protocol NewsViewModelDelegate :NSObject{
 
@@ -16,22 +17,27 @@ protocol NewsViewModelDelegate :NSObject{
     func reloadDataFromPullToRefresh()
 }
 
-class NewsListViewModel {
+class NewsListViewModel : NVActivityIndicatorViewable{
 
     // MARK: - Variables
      weak var delegate:NewsViewModelDelegate?
     fileprivate let networkManager = NewsNetworkManager()
     var dataSource = [NewsItemViewModel]()
+    let activityData = ActivityData()
 
     // MARK: - Helper Methods
     func configureData(){
 
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+
         networkManager.getTopNewsHeadLines(country: kUAE, onSuccess: { (newsModel) in
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             self.delegate?.reloadDataFromPullToRefresh()
             if let status = newsModel.status, status.uppercased() == kStatusOk{
                 self.configureDataSource(models: newsModel.articles!)
             }
         }) { (apiError) in
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             self.delegate?.reloadDataFromPullToRefresh()
         }
 
@@ -46,6 +52,7 @@ class NewsListViewModel {
         }
         delegate?.reloadData()
     }
+
     // MARK: - Refresh Action
     func reloadNews(){
         configureData()
