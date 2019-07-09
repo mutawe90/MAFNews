@@ -13,6 +13,7 @@ protocol NewsViewModelDelegate :NSObject{
 
     func reloadData()
     func showDetailsiewControllerAt(article:NewsItemViewModel)
+    func reloadDataFromPullToRefresh()
 }
 
 class NewsListViewModel {
@@ -26,16 +27,18 @@ class NewsListViewModel {
     func configureData(){
 
         networkManager.getTopNewsHeadLines(country: kUAE, onSuccess: { (newsModel) in
-            if let status = newsModel.status, status.uppercased() == "OK"{
+            self.delegate?.reloadDataFromPullToRefresh()
+            if let status = newsModel.status, status.uppercased() == kStatusOk{
                 self.configureDataSource(models: newsModel.articles!)
             }
         }) { (apiError) in
-
+            self.delegate?.reloadDataFromPullToRefresh()
         }
 
     }
 
     fileprivate func configureDataSource(models: [ArticleModel]) {
+        dataSource.removeAll()
 
         for article in models{
             let model = NewsItemViewModel(article: article)
@@ -43,7 +46,10 @@ class NewsListViewModel {
         }
         delegate?.reloadData()
     }
-
+    // MARK: - Refresh Action
+    func reloadNews(){
+        configureData()
+    }
 
     // MARK: - TableView Helper Methods
     func numberOfSections() -> Int{

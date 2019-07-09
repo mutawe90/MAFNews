@@ -17,12 +17,12 @@ class NewsListViewController: BaseViewController {
     fileprivate var viewModel:NewsListViewModel = NewsListViewModel()
     fileprivate var listModel :NewsModel = NewsModel()
     fileprivate let networkManager = NewsNetworkManager()
+    var refreshControl = UIRefreshControl()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
-        viewModel.configureData()
+        configureView()
         configureTableView()
     }
 
@@ -34,7 +34,20 @@ class NewsListViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
- 
+    func configureView(){
+
+        refreshControl.attributedTitle = NSAttributedString(string: kPullToRefereshText)
+        refreshControl.addTarget(self, action: #selector(reloadNewsDataSource(sender:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+
+        viewModel.delegate = self
+        viewModel.configureData()
+
+    }
+    @objc func reloadNewsDataSource(sender:AnyObject) {
+        self.viewModel.configureData()
+    }
+
 
 }
 
@@ -53,6 +66,12 @@ extension NewsListViewController : UITableViewDelegate, UITableViewDataSource {
 }
 
 extension NewsListViewController : NewsViewModelDelegate {
+    func reloadDataFromPullToRefresh() {
+        if self.refreshControl.isRefreshing{
+            self.refreshControl.endRefreshing()
+        }
+    }
+
     func showDetailsiewControllerAt(article: NewsItemViewModel) {
         let viewController = NewsDetailsViewController.instantiateFromStoryboard()
         navigationController?.pushViewController(viewController, animated: true)
@@ -61,9 +80,5 @@ extension NewsListViewController : NewsViewModelDelegate {
     func reloadData() {
         self.tableView.reloadData()
     }
-
-
-
-
 
 }
