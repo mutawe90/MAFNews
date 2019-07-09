@@ -8,6 +8,8 @@ target 'MAFNews' do
   # Pods for MAFNews
   pod 'ObjectMapper', '~> 3.4'
   pod 'Alamofire'
+  pod "Connectivity"
+
 
   target 'MAFNewsTests' do
     inherit! :search_paths
