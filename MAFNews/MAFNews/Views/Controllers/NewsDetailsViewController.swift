@@ -10,11 +10,11 @@ import UIKit
 import SafariServices
 
 class NewsDetailsViewController: BaseViewController {
-    @IBOutlet weak var newImageView: UIImageView!
+    @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsDesctiptionTextView: UITextView!
+    @IBOutlet weak var newsDescriptionTextView: UITextView!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var dateLanbel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     var articleViewModel : NewsItemViewModel!
 
@@ -31,12 +31,10 @@ class NewsDetailsViewController: BaseViewController {
 
     func bindUI() {
         newsTitleLabel.text = articleViewModel?.newsTitle
-        if let description = articleViewModel?.newsDescription , description.count > 0 {
-            newsDesctiptionTextView.text = description
-        }
-        dateLanbel.text = articleViewModel?.newsDate
+        newsDescriptionTextView.text = articleViewModel?.newsDescription
+        dateLabel.text = articleViewModel?.newsDate
         if let imageURL = articleViewModel?.imageURL {
-            self.newImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholderImage") , options: .highPriority, completed: nil)
+            self.newsImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholderImage") , options: .highPriority, completed: nil)
 
         }
         sourceLabel.text = articleViewModel.newsSource

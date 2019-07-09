@@ -133,9 +133,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="dateLanbel" destination="2Os-at-tou" id="ofs-Zw-Ad6"/>
-                        <outlet property="newImageView" destination="AXL-nG-IG0" id="bc6-K2-x7U"/>
-                        <outlet property="newsDesctiptionTextView" destination="C0v-I6-kyx" id="xrw-Oo-tBo"/>
+                        <outlet property="dateLabel" destination="2Os-at-tou" id="ofs-Zw-Ad6"/>
+                        <outlet property="newsDescriptionTextView" destination="C0v-I6-kyx" id="xrw-Oo-tBo"/>
+                        <outlet property="newsImageView" destination="AXL-nG-IG0" id="bc6-K2-x7U"/>
                         <outlet property="newsTitleLabel" destination="BLT-El-j97" id="72h-ZJ-Dfm"/>
                         <outlet property="sourceLabel" destination="nqV-VT-JUE" id="o4r-8L-ch2"/>
                     </connections>

@@ -32,23 +32,33 @@ class NewsListViewModel {
     var dataSource = [NewsItemViewModel]()
 
     // MARK: - Helper Methods
-    func configureData(){
+    func configureData(isPullToRefreshActive : Bool){
 
-        self.controlsDelegate?.addLoadingIndicator()
+        if isPullToRefreshActive == false{
+            self.controlsDelegate?.addLoadingIndicator()
+        }
         networkManager.getTopNewsHeadLines(country: kUSAnewsSource, onSuccess: { (newsModel) in
-            self.controlsDelegate?.removeLoadingIndicator()
-            self.delegate?.reloadDataFromPullToRefresh()
-            if let status = newsModel.status, status.uppercased() == kStatusOk{
-                self.configureDataSource(models: newsModel.articles!)
-            }
+            self.successResponseAction(newsModel: newsModel)
+            
         }) { (apiError) in
-            self.controlsDelegate?.removeLoadingIndicator()
-            self.controlsDelegate?.showError(message: apiError.message, complition: nil)
-            self.delegate?.reloadDataFromPullToRefresh()
+            self.failtureResponseAction(message: apiError.message)
         }
 
     }
 
+    func successResponseAction(newsModel : NewsModel) {
+        self.controlsDelegate?.removeLoadingIndicator()
+        self.delegate?.reloadDataFromPullToRefresh()
+        if let status = newsModel.status, status.uppercased() == kStatusOk{
+            self.configureDataSource(models: newsModel.articles!)
+        }
+    }
+    func failtureResponseAction(message : String )  {
+        self.controlsDelegate?.removeLoadingIndicator()
+        self.controlsDelegate?.showError(message: message, complition: nil)
+        self.delegate?.reloadDataFromPullToRefresh()
+
+    }
     fileprivate func configureDataSource(models: [ArticleModel]) {
         dataSource.removeAll()
 
@@ -61,7 +71,7 @@ class NewsListViewModel {
 
     // MARK: - Refresh Action
     func reloadNews(){
-        configureData()
+        configureData(isPullToRefreshActive: false)
     }
 
     // MARK: - TableView Helper Methods

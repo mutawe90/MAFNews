@@ -42,15 +42,15 @@ class NewsListViewController: BaseViewController {
 
         viewModel.delegate = self
         viewModel.controlsDelegate = self
-        viewModel.configureData()
+        viewModel.configureData(isPullToRefreshActive: false)
 
     }
     @objc func reloadNewsDataSource(sender:AnyObject) {
-        self.viewModel.configureData()
+        viewModel.configureData(isPullToRefreshActive: self.refreshControl.isRefreshing)
     }
 
     @IBAction func reloadNewsManuallyAction(_ sender: Any) {
-        self.viewModel.configureData()
+        viewModel.configureData(isPullToRefreshActive: self.refreshControl.isRefreshing)
     }
     
 }

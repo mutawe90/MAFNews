@@ -68,12 +68,7 @@ class BaseRouter : URLRequestConvertible, APIConfiguration
         {
             urlRequest.setValue(value as? String, forHTTPHeaderField: key)
         }
-        print("----------------------------------------------------------------------------")
-        print("Request :")
-        print(urlRequest)
-        print("Parameters :")
-        print(parameters as Any)
-        print("----------------------------------------------------------------------------")
+
         if encoding != nil
         {
             return try encoding!.encode(urlRequest, with: parameters)
