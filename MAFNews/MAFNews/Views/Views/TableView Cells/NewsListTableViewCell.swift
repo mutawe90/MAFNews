@@ -15,7 +15,8 @@ class NewsListTableViewCell: UITableViewCell {
     @IBOutlet weak var newsTitleLabel: UILabel!
     @IBOutlet weak var newsDescriptionLabel: UILabel!
     @IBOutlet weak var newsDateLabel: UILabel!
-    
+    @IBOutlet weak var newsDescriptionConstraint: NSLayoutConstraint!
+
     var viewModel:NewsItemViewModel?{
         didSet{
             if let _ = viewModel{
@@ -31,7 +32,12 @@ class NewsListTableViewCell: UITableViewCell {
 
     func bindUI(){
         newsTitleLabel.text = viewModel?.newsTitle
-        newsDescriptionLabel.text = viewModel?.newsDescription
+        if let description = viewModel?.newsDescription , description.count > 0 {
+            newsDescriptionLabel.text = description
+        }
+        else{
+            newsDescriptionConstraint.constant = 0
+        }
         newsDateLabel.text = viewModel?.newsDate
         if let imageURL = viewModel?.imageURL {
            self.newsImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholderImage") , options: .highPriority, completed: nil)

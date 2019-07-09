@@ -28,6 +28,10 @@ class NewsItemViewModel {
         newsTitle = article.title ?? ""
         newsDescription = article.newsDescription ?? ""
         newsDate = article.publishedAt ?? ""
+        if let dateString = article.publishedAt{
+            let date = Date(fromString: dateString, format: .isoDateTimeSec)
+            newsDate = (date?.toString(style: DateStyleType.medium))!
+        }
 
     }
 

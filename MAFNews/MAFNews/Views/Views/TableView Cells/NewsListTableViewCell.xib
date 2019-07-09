@@ -26,10 +26,10 @@
                             <constraint firstAttribute="height" constant="90" id="net-wA-mRU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTz-lT-fdB">
-                        <rect key="frame" x="110" y="55.5" width="254" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="kTz-lT-fdB">
+                        <rect key="frame" x="110" y="50.5" width="254" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="twQ-DS-o2N"/>
+                            <constraint firstAttribute="height" constant="30" id="twQ-DS-o2N"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -45,7 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRG-gy-eHT">
-                        <rect key="frame" x="110" y="10.5" width="254" height="40"/>
+                        <rect key="frame" x="110" y="10.5" width="254" height="35"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -70,6 +70,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="newsDateLabel" destination="saL-kg-C0G" id="c1L-kI-bb1"/>
+                <outlet property="newsDescriptionConstraint" destination="twQ-DS-o2N" id="l0N-Ma-fiJ"/>
                 <outlet property="newsDescriptionLabel" destination="kTz-lT-fdB" id="gdv-Ry-yAd"/>
                 <outlet property="newsImageView" destination="rd8-8L-jcT" id="kqh-7B-Mei"/>
                 <outlet property="newsTitleLabel" destination="fRG-gy-eHT" id="0l9-YQ-iQ9"/>

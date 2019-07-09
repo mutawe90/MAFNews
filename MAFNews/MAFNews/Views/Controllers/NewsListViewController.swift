@@ -61,6 +61,9 @@ extension NewsListViewController : UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = viewModel.newsDetailForItem(index: indexPath.row)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.handleSelectonFor(row: indexPath.row)
+    }
 
 
 }
@@ -74,6 +77,7 @@ extension NewsListViewController : NewsViewModelDelegate {
 
     func showDetailsiewControllerAt(article: NewsItemViewModel) {
         let viewController = NewsDetailsViewController.instantiateFromStoryboard()
+        viewController.articleViewModel = article
         navigationController?.pushViewController(viewController, animated: true)
 
     }

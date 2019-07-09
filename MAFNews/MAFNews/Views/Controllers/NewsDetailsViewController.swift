@@ -10,6 +10,7 @@ import UIKit
 
 class NewsDetailsViewController: BaseViewController {
 
+    var articleViewModel : NewsItemViewModel!
 
     // MARK: - static methods
     static func instantiateFromStoryboard() -> NewsDetailsViewController {
