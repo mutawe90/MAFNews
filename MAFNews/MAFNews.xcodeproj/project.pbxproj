@@ -17,7 +17,7 @@
 		20C9782F22D4815900FD9E52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C9782D22D4815900FD9E52 /* LaunchScreen.storyboard */; };
 		20C9783A22D4815A00FD9E52 /* MAFNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9783922D4815A00FD9E52 /* MAFNewsTests.swift */; };
 		20C9784522D4815A00FD9E52 /* MAFNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9784422D4815A00FD9E52 /* MAFNewsUITests.swift */; };
-		20C9785422D4843900FD9E52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9785322D4843900FD9E52 /* Constants.swift */; };
+		20C9785422D4843900FD9E52 /* StringsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9785322D4843900FD9E52 /* StringsConstants.swift */; };
 		20C9785C22D4B1B000FD9E52 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9785B22D4B1B000FD9E52 /* BaseRouter.swift */; };
 		20C9785E22D4B21A00FD9E52 /* BaseNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9785D22D4B21A00FD9E52 /* BaseNetworkManager.swift */; };
 		20C9786122D4B24800FD9E52 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9786022D4B24800FD9E52 /* APIError.swift */; };
@@ -62,7 +62,7 @@
 		20C9784022D4815A00FD9E52 /* MAFNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MAFNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C9784422D4815A00FD9E52 /* MAFNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFNewsUITests.swift; sourceTree = "<group>"; };
 		20C9784622D4815A00FD9E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20C9785322D4843900FD9E52 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		20C9785322D4843900FD9E52 /* StringsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsConstants.swift; sourceTree = "<group>"; };
 		20C9785B22D4B1B000FD9E52 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		20C9785D22D4B21A00FD9E52 /* BaseNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkManager.swift; sourceTree = "<group>"; };
 		20C9786022D4B24800FD9E52 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		20C9786222D4B27300FD9E52 /* Constatns */ = {
 			isa = PBXGroup;
 			children = (
-				20C9785322D4843900FD9E52 /* Constants.swift */,
+				20C9785322D4843900FD9E52 /* StringsConstants.swift */,
 			);
 			path = Constatns;
 			sourceTree = "<group>";
@@ -502,7 +502,7 @@
 				20C9782722D4815900FD9E52 /* ViewController.swift in Sources */,
 				20C9786F22D4B7FC00FD9E52 /* ArticleSourceModel.swift in Sources */,
 				20C9782522D4815900FD9E52 /* AppDelegate.swift in Sources */,
-				20C9785422D4843900FD9E52 /* Constants.swift in Sources */,
+				20C9785422D4843900FD9E52 /* StringsConstants.swift in Sources */,
 				20C9785E22D4B21A00FD9E52 /* BaseNetworkManager.swift in Sources */,
 				20C9786522D4B29600FD9E52 /* EnviromentManager.swift in Sources */,
 				208501E322D4D69B00ABDB0A /* NewsNetworkManager.swift in Sources */,
