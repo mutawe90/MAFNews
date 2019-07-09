@@ -10,8 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    fileprivate let networkManager = NewsNetworkManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        networkManager.getTopNewsHeadLines(country: "AE", onSuccess: { (models) in
+
+        }) { (error) in
+            
+        }
         // Do any additional setup after loading the view.
     }
 

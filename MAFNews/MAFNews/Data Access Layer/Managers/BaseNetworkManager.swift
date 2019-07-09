@@ -49,7 +49,7 @@ class BaseNetworkManager : NSObject
         sessionManager.request(router)
             .validate()
             .responseString(completionHandler: { (response) in
-                //                            print("----- STRING Response ", response.result.value as Any)
+		print("----- STRING Response ", response.result.value as Any)
 
             })
             .responseJSON { (response) in

@@ -9,4 +9,6 @@
 import Foundation
 let kAPIKey = "756cd5a0a2954a43ae415240bf73966c"
 let kNoInternetMessage = "No Internet Available"
-let kProductionEndPoint = "https://newsapi.org"
+
+// End Point
+let kProductionEndPoint = "https://newsapi.org/v2/"
