@@ -13,7 +13,7 @@ struct ArticleModel : Mappable {
     var source : ArticleSourceModel?
     var author : String?
     var title : String?
-    var description : String?
+    var newsDescription : String?
     var url : String?
     var urlToImage : String?
     var publishedAt : String?
@@ -28,7 +28,7 @@ struct ArticleModel : Mappable {
         source <- map["source"]
         author <- map["author"]
         title <- map["title"]
-        description <- map["description"]
+        newsDescription <- map["description"]
         url <- map["url"]
         urlToImage <- map["urlToImage"]
         publishedAt <- map["publishedAt"]

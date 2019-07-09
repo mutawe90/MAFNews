@@ -9,6 +9,7 @@ target 'MAFNews' do
   pod 'ObjectMapper', '~> 3.4'
   pod 'Alamofire'
   pod "Connectivity"
+  pod 'SDWebImage', '~> 4.4.6'
 
 
   target 'MAFNewsTests' do

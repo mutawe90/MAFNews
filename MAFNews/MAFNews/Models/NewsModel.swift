@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 import ObjectMapper
 
 struct NewsModel : Mappable {
@@ -15,10 +14,15 @@ struct NewsModel : Mappable {
     var totalResults : Int?
     var articles : [ArticleModel]?
 
+
     init?(map: Map) {
 
     }
 
+    init(){
+
+    }
+    
     mutating func mapping(map: Map) {
 
         status <- map["status"]
