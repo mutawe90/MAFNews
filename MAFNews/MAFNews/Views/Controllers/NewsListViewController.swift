@@ -48,7 +48,10 @@ class NewsListViewController: BaseViewController {
         self.viewModel.configureData()
     }
 
-
+    @IBAction func reloadNewsManuallyAction(_ sender: Any) {
+        self.viewModel.configureData()
+    }
+    
 }
 
 extension NewsListViewController : UITableViewDelegate, UITableViewDataSource {
@@ -73,6 +76,7 @@ extension NewsListViewController : NewsViewModelDelegate {
         if self.refreshControl.isRefreshing{
             self.refreshControl.endRefreshing()
         }
+
     }
 
     func showDetailsiewControllerAt(article: NewsItemViewModel) {
@@ -83,6 +87,7 @@ extension NewsListViewController : NewsViewModelDelegate {
     }
     func reloadData() {
         self.tableView.reloadData()
+
     }
 
 }

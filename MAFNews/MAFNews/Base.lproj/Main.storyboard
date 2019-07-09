@@ -33,7 +33,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8bf-uD-qk7"/>
+                    <navigationItem key="navigationItem" id="8bf-uD-qk7">
+                        <barButtonItem key="rightBarButtonItem" image="reloadIcon" id="SAo-O4-gW9">
+                            <connections>
+                                <action selector="reloadNewsManuallyAction:" destination="BYZ-38-t0r" id="jJm-Gm-sNg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="zDe-t0-rZT" id="o7l-ul-qEy"/>
                     </connections>
@@ -49,9 +55,23 @@
                     <view key="view" contentMode="scaleToFill" id="YHe-5i-6pX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-0y-awQ">
+                                <rect key="frame" x="10" y="98" width="394" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="4Rm-to-Quj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wSu-yP-sKF" firstAttribute="trailing" secondItem="SZn-0y-awQ" secondAttribute="trailing" constant="10" id="4OT-cW-84a"/>
+                            <constraint firstItem="SZn-0y-awQ" firstAttribute="leading" secondItem="wSu-yP-sKF" secondAttribute="leading" constant="10" id="6PZ-so-EQD"/>
+                            <constraint firstItem="SZn-0y-awQ" firstAttribute="top" secondItem="wSu-yP-sKF" secondAttribute="top" constant="10" id="MZE-e0-npa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wSu-yP-sKF"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXA-Tv-bha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,4 +96,7 @@
             <point key="canvasLocation" x="52" y="19"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reloadIcon" width="48" height="48"/>
+    </resources>
 </document>

@@ -173,16 +173,8 @@
 		208501FF22D511EB00ABDB0A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2085020022D511F500ABDB0A /* MPProgressHud */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		2085020022D511F500ABDB0A /* MPProgressHud */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MPProgressHud;
 			sourceTree = "<group>";
 		};
 		20C9781822D4815900FD9E52 = {

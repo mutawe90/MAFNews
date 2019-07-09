@@ -32,8 +32,7 @@ class BaseNetworkManager : NSObject
                 onFailure(apiError)
             }
         }
-        //        self._performNetworkRequest(forRouter: router, onSuccess: onSuccess, onFailure: onFailure)
-    }
+     }
 
     fileprivate func _performNetworkRequest(forRouter router: BaseRouter , onSuccess: @escaping SuccessCompletion , onFailure: @escaping FailureCompletion)
     {
@@ -45,11 +44,9 @@ class BaseNetworkManager : NSObject
         )
 
 
-        print("----- (router) ", (router) as Any)
-        sessionManager.request(router)
+         sessionManager.request(router)
             .validate()
             .responseString(completionHandler: { (response) in
-		print("----- STRING Response ", response.result.value as Any)
 
             })
             .responseJSON { (response) in
