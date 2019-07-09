@@ -1,0 +1,6 @@
+framework module Pods_MAFNewsTests {
+  umbrella header "Pods-MAFNewsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
