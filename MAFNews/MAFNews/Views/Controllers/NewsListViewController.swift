@@ -82,7 +82,7 @@ extension NewsListViewController : NewsViewModelDelegate {
 
     func showDetailsiewControllerAt(article: NewsItemViewModel) {
         let viewController = NewsDetailsViewController.instantiateFromStoryboard()
-        viewController.articleViewModel = article
+        viewController.articleViewModel = ArticleViewModel(article: article.model)
         navigationController?.pushViewController(viewController, animated: true)
 
     }

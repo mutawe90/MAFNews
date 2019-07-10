@@ -16,7 +16,7 @@ class NewsDetailsViewController: BaseViewController {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 
-    var articleViewModel : NewsItemViewModel!
+    var articleViewModel : ArticleViewModel!
 
     // MARK: - static methods
     static func instantiateFromStoryboard() -> NewsDetailsViewController {

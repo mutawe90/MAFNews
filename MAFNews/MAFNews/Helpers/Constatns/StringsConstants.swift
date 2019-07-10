@@ -13,7 +13,8 @@ let kAPIKey = "756cd5a0a2954a43ae415240bf73966c"
 let kNoInternetMessage = "No Internet Available"
 let kUSAnewsSource = "us"
 let kStatusOk = "OK"
-let kPullToRefereshText = "Getting Latest News"
+//let kPullToRefereshText = "Getting Latest News"
+let kPullToRefereshText = ""
 
 // End Point
 let kProductionEndPoint = "https://newsapi.org/v2/"
